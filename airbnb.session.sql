@@ -25,6 +25,10 @@ CREATE TABLE Bookings (
     FOREIGN KEY(room_id) REFERENCES Rooms(id)
 );
 
+INSERT INTO Bookings (id, guest_id, room_id, check_in)
+VALUES(1,1,1,'2022-06-18 12:10:32');
+
+
 -- @block
 INSERT INTO Users (email, bio, country)
 VALUES(
@@ -55,4 +59,14 @@ SELECT * FROM Users WHERE email='e2@email.com';
 
 CREATE INDEX email_index ON Users(email);
 
+SELECT * FROM Rooms;
+
 SELECT Users.id AS user_id, Rooms.id as room_id,email,street FROM Users LEFT JOIN Rooms ON Rooms.owner_id = Users.id;
+
+SELECT * FROM Bookings INNER JOIN Rooms ON Rooms.owner_id = guest_id
+WHERE guest_id=1;
+
+
+SELECT * FROM Bookings;
+
+SELECT * FROM Rooms;
